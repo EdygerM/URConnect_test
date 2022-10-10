@@ -46,6 +46,7 @@ while True:
                 offset += 4
                 popupMessageTitleSize = struct.unpack_from('!B', data, offset)[0]
                 offset += 1
+                print(popupMessageTitleSize)
                 popupMessageTitle = struct.unpack_from('!s', data, offset)[0]
                 offset += popupMessageTitleSize
                 popupTextMessage = struct.unpack_from('!s', data, offset)[0]
