@@ -39,7 +39,7 @@ while True:
                 offset += popupMessageTitleSize
                 popupTextMessage = struct.unpack_from('!s', data, offset)[0]
                 print(popupTextMessage)
-            elif robotMessageType == 7:
+            elif ord(robotMessageType) == 7:
                 robotMessageCode = struct.unpack_from('!i', data, offset)[0]
                 offset += 4
                 robotMessageArgument = struct.unpack_from('!i', data, offset)[0]
