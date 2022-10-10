@@ -12,5 +12,5 @@ robot1.play()
 print("Program is running")
 time.sleep(1)
 while robot1.running():
-    time.sleep(0.05)
+    pass
 print("Program is finished")
