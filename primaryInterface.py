@@ -15,7 +15,6 @@ while True:
         messageType = struct.unpack_from('!B', data, offset)[0]
         offset += 1
         if messageType == 20:
-            print('toto')
             timestamp = struct.unpack_from('!Q', data, offset)[0]
             offset += 8
             source = struct.unpack_from('!c', data, offset)[0]
@@ -23,6 +22,7 @@ while True:
             robotMessageType = struct.unpack_from('!c', data, offset)[0]
             offset += 1
             if robotMessageType == 2:
+                print('toto')
                 requestId = struct.unpack_from('!I', data, offset)[0]
                 offset += 4
                 requestedType = struct.unpack_from('!I', data, offset)[0]
