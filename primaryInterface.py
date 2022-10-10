@@ -39,6 +39,17 @@ while True:
                 offset += popupMessageTitleSize
                 popupTextMessage = struct.unpack_from('!s', data, offset)[0]
                 print(popupTextMessage)
+            elif robotMessageType == 7:
+                robotMessageCode = struct.unpack_from('!i', data, offset)[0]
+                offset += 4
+                robotMessageArgument = struct.unpack_from('!i', data, offset)[0]
+                offset += 4
+                popupMessageTitleSize = struct.unpack_from('!B', data, offset)[0]
+                offset += 1
+                popupMessageTitle = struct.unpack_from('!s', data, offset)[0]
+                offset += popupMessageTitleSize
+                popupTextMessage = struct.unpack_from('!s', data, offset)[0]
+                print(popupTextMessage)
 
 #packageSize = struct.unpack_from('!i', data, 5)[0]
 #packageType = struct.unpack_from('!B', data, 9)[0]
