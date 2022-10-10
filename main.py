@@ -1,11 +1,9 @@
 import time
 import dashboard_client
-import rtde_receive
 
 ipAddress = "172.31.0.101"
 
 robot1 = dashboard_client.DashboardClient(ipAddress)
-robot1_receive = rtde_receive.RTDEReceiveInterface(ipAddress)
 
 robot1.connect()
 print(robot1.isConnected())
