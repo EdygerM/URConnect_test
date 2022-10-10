@@ -10,12 +10,12 @@ while True:
     data = s.recv(4096)
     offset = 0
     if data:
-        print('received some data')
         messageSize = struct.unpack_from('!i', data)[0]
         offset += 4
         messageType = struct.unpack_from('!B', data, offset)[0]
         offset += 1
         if messageType == 20:
+            print('toto')
             timestamp = struct.unpack_from('!Q', data, offset)[0]
             offset += 8
             source = struct.unpack_from('!c', data, offset)[0]
