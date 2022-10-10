@@ -14,10 +14,10 @@ robot1.play()
 print("Program is running")
 time.sleep(1)
 while robot1.running():
-    if robot1_receive.getDigitalOutState(16):
-        print("Tool digital out (16) is HIGH")
+    if robot1_receive.getDigitalOutState(17):
+        print("Tool digital out (17) is HIGH")
     else:
-        print("Tool digital out (16) is LOW")
+        print("Tool digital out (17) is LOW")
 
     time.sleep(0.05)
 print("Program is finished")
