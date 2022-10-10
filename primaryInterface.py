@@ -49,7 +49,7 @@ while True:
                 popupMessageTitle = struct.unpack_from('!%ds' % popupMessageTitleSize, data, offset)[0]
                 offset += popupMessageTitleSize
                 print(popupMessageTitle)
-                popupTextMessage = struct.unpack_from('!30s', data, offset)[0]
+                popupTextMessage = struct.unpack_from('!8s', data, offset)[0]
                 print(popupTextMessage)
 
 #packageSize = struct.unpack_from('!i', data, 5)[0]
