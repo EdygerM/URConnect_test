@@ -4,8 +4,8 @@ HOST = '172.31.0.101'
 PORT = 30002
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.connect((HOST, PORT))
+print('Connected')
 while True:
     data = s.recv(4096)
     offset = 0
