@@ -21,7 +21,7 @@ while True:
             offset += 1
             robotMessageType = struct.unpack_from('!c', data, offset)[0]
             offset += 1
-            print(robotMessageType)
+            print(ord(robotMessageType))
             if robotMessageType == '2':
                 requestId = struct.unpack_from('!I', data, offset)[0]
                 offset += 4
