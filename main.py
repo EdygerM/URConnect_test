@@ -19,5 +19,5 @@ while robot1.running():
     else:
         print("Tool digital out (16) is LOW")
 
-    time.sleep(0.5)
+    time.sleep(0.05)
 print("Program is finished")
