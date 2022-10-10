@@ -10,6 +10,7 @@ while True:
     data = s.recv(4096)
     offset = 0
     if data:
+        print('received some data')
         messageSize = struct.unpack_from('!i', data)[0]
         offset += 4
         messageType = struct.unpack_from('!B', data, offset)[0]
