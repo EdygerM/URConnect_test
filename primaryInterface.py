@@ -10,11 +10,11 @@ while True:
     data = s.recv(4096)
     offset = 0
     if data:
-        print('toto')
         messageSize = struct.unpack_from('!i', data)[0]
         offset += 4
         messageType = struct.unpack_from('!B', data, offset)[0]
         offset += 1
+        print(messageType)
         if messageType == 20:
             timestamp = struct.unpack_from('!Q', data, offset)[0]
             offset += 8
@@ -22,7 +22,7 @@ while True:
             offset += 1
             robotMessageType = struct.unpack_from('!c', data, offset)[0]
             offset += 1
-            print(robotMessageType)
+            #print(robotMessageType)
             if robotMessageType == '2':
                 requestId = struct.unpack_from('!I', data, offset)[0]
                 offset += 4
