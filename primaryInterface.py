@@ -50,8 +50,8 @@ while True:
                 robotMessageTitle = struct.unpack_from('!%ds' % robotMessageTitleSize, data, offset)[0]
                 offset += robotMessageTitleSize
                 print(robotMessageTitle)
-                robotTextMessage = struct.unpack_from('!8s', data, offset)[0]
-                print(robotTextMessage)
+                keyTextMessage = struct.unpack_from('!8s', data, offset)[0]
+                print(keyTextMessage)
 
 #packageSize = struct.unpack_from('!i', data, 5)[0]
 #packageType = struct.unpack_from('!B', data, 9)[0]
