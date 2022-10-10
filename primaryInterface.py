@@ -1,7 +1,7 @@
 import socket, struct
 
 HOST = '172.31.0.101'
-PORT = 30002
+PORT = 30001
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
