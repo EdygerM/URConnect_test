@@ -22,7 +22,7 @@ while True:
             robotMessageType = struct.unpack_from('!c', data, offset)[0]
             offset += 1
             print(ord(robotMessageType))
-            if robotMessageType == '2':
+            if ord(robotMessageType) == 9:
                 requestId = struct.unpack_from('!I', data, offset)[0]
                 offset += 4
                 requestedType = struct.unpack_from('!I', data, offset)[0]
@@ -35,22 +35,23 @@ while True:
                 offset += 1
                 popupMessageTitleSize = struct.unpack_from('!B', data, offset)[0]
                 offset += 1
-                popupMessageTitle = struct.unpack_from('!s', data, offset)[0]
+                popupMessageTitle = struct.unpack_from('!%ds' % popupMessageTitleSize, data, offset)[0]
                 offset += popupMessageTitleSize
-                popupTextMessage = struct.unpack_from('!s', data, offset)[0]
+                print(popupMessageTitle)
+                popupTextMessage = struct.unpack_from('!8s', data, offset)[0]
                 print(popupTextMessage)
             elif ord(robotMessageType) == 7:
                 robotMessageCode = struct.unpack_from('!i', data, offset)[0]
                 offset += 4
                 robotMessageArgument = struct.unpack_from('!i', data, offset)[0]
                 offset += 4
-                popupMessageTitleSize = struct.unpack_from('!B', data, offset)[0]
+                robotMessageTitleSize = struct.unpack_from('!B', data, offset)[0]
                 offset += 1
-                popupMessageTitle = struct.unpack_from('!%ds' % popupMessageTitleSize, data, offset)[0]
-                offset += popupMessageTitleSize
-                print(popupMessageTitle)
-                popupTextMessage = struct.unpack_from('!8s', data, offset)[0]
-                print(popupTextMessage)
+                robotMessageTitle = struct.unpack_from('!%ds' % robotMessageTitleSize, data, offset)[0]
+                offset += robotMessageTitleSize
+                print(robotMessageTitle)
+                robotTextMessage = struct.unpack_from('!8s', data, offset)[0]
+                print(robotTextMessage)
 
 #packageSize = struct.unpack_from('!i', data, 5)[0]
 #packageType = struct.unpack_from('!B', data, 9)[0]
